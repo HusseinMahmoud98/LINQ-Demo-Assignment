@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.Arm;
 using System.Threading;
+using System.Xml;
 using System.Xml.Linq;
 using static Assignment.ListGenerator;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -363,16 +365,25 @@ namespace Assignment
             //LINQ - Set Operators
 
             #region Q01
-            //1.Find the unique Category names from Product List
-            var result = ProductList.Select(p => p.Category).Distinct();
+            ////1.Find the unique Category names from Product List
+            //var result = ProductList.Select(p => p.Category).Distinct();
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #region Q02
+            //2.Produce a Sequence containing the unique first letter from both product and customer names.
+            var result = ProductList.DistinctBy(p => p.ProductName[0]).Select(p => p.ProductName)
+                .Union(CustomerList.DistinctBy(c => c.CustomerName[0]).Select(c => c.CustomerName));
 
             foreach (var item in result)
             {
                 Console.WriteLine(item);
             } 
             #endregion
-
-
 
             #endregion
 
