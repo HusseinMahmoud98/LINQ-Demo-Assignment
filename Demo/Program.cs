@@ -642,8 +642,6 @@ namespace Demo
                 Console.WriteLine(item);
             }
 
-
-
         }
     }
 }
