@@ -124,16 +124,47 @@ namespace Assignment
             #endregion
 
             #region Q04
-            //4. Get the length of the shortest word in dictionary_english.txt
-            //   (Read dictionary_english.txt into Array of String First).
-            string word = "dictionary_english.txt";
-            string[] arrString = word.Split(' ', '.'); // {"dictionary", "english", "txt"}
+            ////4. Get the length of the shortest word in dictionary_english.txt
+            ////   (Read dictionary_english.txt into Array of String First).
+            //string word = "dictionary_english.txt";
+            //string[] arrString = word.Split(' ', '.'); // {"dictionary", "english", "txt"}
 
-            var result = arrString.Min(w => w.Length);
-            Console.WriteLine(result); //3
+            //var result = arrString.Min(w => w.Length);
+            //Console.WriteLine(result); //3
 
 
             #endregion
+
+            #region Q05  //To be continued
+            //REVIEW THIS
+            //5. Get the total units in stock for each product category.
+            #endregion
+
+            #endregion #endregion
+
+            #region LINQ - Ordering Operators
+            #region Q01
+            //1. Sort a list of products by name 
+            //Fluent Syntax
+            //var result = ProductList.OrderBy(p => p.ProductName);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Query Syntax
+            var result2 = from p in ProductList
+                          orderby (p.ProductName)
+                          select p;
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine(item);
+            }
+
+            #endregion
+
 
             #endregion
         }
