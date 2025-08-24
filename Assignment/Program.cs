@@ -73,6 +73,17 @@ namespace Assignment
 
             #endregion
 
+            //2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
+            var result = ProductList.Where(p=>p.UnitPrice>1000).ElementAtOrDefault(0);
+            Console.WriteLine(result);
+
+            //or
+            var result2 = ProductList.Where(p => p.UnitPrice > 1000).FirstOrDefault();
+            Console.WriteLine(result2);
+
+            //or
+            var result3 = ProductList.FirstOrDefault(p => p.UnitPrice > 1000);
+            Console.WriteLine(result3);
         }
     }
 }
