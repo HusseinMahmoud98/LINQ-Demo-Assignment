@@ -144,7 +144,7 @@ namespace Assignment
 
             #region LINQ - Ordering Operators
             #region Q01
-            //1. Sort a list of products by name 
+            ////1. Sort a list of products by name 
             //Fluent Syntax
             //var result = ProductList.OrderBy(p => p.ProductName);
 
@@ -153,17 +153,36 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
+            ////Query Syntax
+            //var result2 = from p in ProductList
+            //              orderby (p.ProductName)
+            //              select p;
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            //2. Sort a list of products by units in stock from highest to lowest.
+            //Fluent Syntax
+            //var result = ProductList.OrderByDescending(p => p.UnitsInStock);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
             //Query Syntax
             var result2 = from p in ProductList
-                          orderby (p.ProductName)
+                          orderby p.UnitsInStock descending
                           select p;
 
             foreach (var item in result2)
             {
                 Console.WriteLine(item);
             }
-
-            #endregion
 
 
             #endregion
