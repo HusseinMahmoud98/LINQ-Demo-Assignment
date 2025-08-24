@@ -93,15 +93,23 @@ namespace Assignment
             #region LINQ - Aggregate Operators
             //LINQ - Aggregate Operators
             #region Q01
-            //1. Uses Count to get the number of odd numbers in the array
-            //Int [] Arr = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
+            ////1. Uses Count to get the number of odd numbers in the array
+            ////Int [] Arr = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
 
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            var result = Arr.Count(n => n % 2 == 1);
-            Console.WriteLine(result); 
+            //var result = Arr.Count(n => n % 2 == 1);
+            //Console.WriteLine(result); 
             #endregion
 
+            #region Q02
+            //2. Get the total of the numbers in an array.
+            //Int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var result = Arr.Count();
+            Console.WriteLine(result); //10 
+            #endregion
             #endregion
         }
     }
