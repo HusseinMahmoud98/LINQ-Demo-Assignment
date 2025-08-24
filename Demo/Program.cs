@@ -2,7 +2,7 @@
 using System.Data.Common;
 using System.Reflection.Emit;
 using System.Security.Principal;
-
+using System.Text.RegularExpressions;
 using static Demo.ListGenerator;
 
 namespace Demo
@@ -527,7 +527,6 @@ namespace Demo
             //} 
             #endregion
 
-
             #region 11. Grouping Operators
             //// 11. Grouping Operators
 
@@ -575,17 +574,75 @@ namespace Demo
             //} 
             #endregion
 
-            // Partioning Operators - Take, TakeLast, Skip, SkipLast, TajeWhile, SkipWhile
-            var result = ProductList.Take(5);
+            #region  12. Partioning Operators - Take, TakeLast, Skip, SkipLast, TakeWhile, SkipWhile
+            //// Partioning Operators - Take, TakeLast, Skip, SkipLast, TakeWhile, SkipWhile
+            //var result = ProductList.Take(5);
+            //result = ProductList.Where(p => p.UnitsInStock == 0).Take(2);
+            //result = ProductList.Where(p => p.UnitsInStock == 0).TakeLast(4);
 
-            result = ProductList.Where(p => p.UnitsInStock == 0).Take(2);
+            //result = ProductList.Skip(10);
+            //result = ProductList.Where(p => p.UnitsInStock == 0).SkipLast(2);
 
-            result = ProductList.Where(p => p.UnitsInStock == 0).TakeLast(4);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            foreach (var item in result)
+            //int[] Numbers = { 3, 6, 7, 1, 0, 1, 9 };
+
+            //var result = Numbers.TakeWhile(n => n % 3 == 0);
+            //result = Numbers.SkipWhile(n => n% 3 == 0);
+
+            //int[] Numbers2 = { 5, 4, 1, 3, 9, 6, 7, 2, 0 };
+            //result = Numbers2.TakeWhile((n, Index) => n > Index);
+            //result = Numbers2.SkipWhile((n, Index) => n > Index);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            List<string> Names = new List<string>() { "Ahmed", "Ali", "Mohamed", "Mona", "Aya", "Mariam",
+                                                     "Tuqqa", "Sally", "Mahmoud", "Osama"};
+
+            //var result = Regex.Replace("Hussein", "[aeoiuAEOUI]", string.Empty);
+            //Console.WriteLine(result); //Hssn
+
+            //var result2 = from name in Names
+            //             select Regex.Replace(name, "[aeoiuAEOUI]", string.Empty);
+
+            // var result2 = from name in Names
+            //             select Regex.Replace(name, "[aeoiuAEOUI]", string.Empty);
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //var result3 = from name in Names
+            //              select Regex.Replace(name, "[aeouiAEOUI]", string.Empty)
+            //              into NoVolNames
+            //              where NoVolNames.Length > 3
+            //              select NoVolNames;
+
+            //foreach (var item in result3)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            var result4 = from name in Names
+                          let NoVolNames = Regex.Replace(name, "[aeouiAEOUI]", string.Empty)
+                          where NoVolNames.Length > 3
+                          select NoVolNames;
+
+
+            foreach (var item in result4)
             {
                 Console.WriteLine(item);
             }
+
+
 
         }
     }
