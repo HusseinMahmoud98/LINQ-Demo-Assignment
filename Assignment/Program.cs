@@ -269,6 +269,8 @@ namespace Assignment
 
             #endregion
 
+
+            #region LINQ – Transformation Operators
             //LINQ – Transformation Operators
 
             #region Q01
@@ -342,16 +344,35 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            //Query Syntax
-            var result2 = from c in CustomerList
-                         from o in c.Orders
-                         where o.Total < 500
-                         select o;
+            ////Query Syntax
+            //var result2 = from c in CustomerList
+            //             from o in c.Orders
+            //             where o.Total < 500
+            //             select o;
 
-            foreach (var item in result2)
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #endregion
+
+            #region LINQ - Set Operators  
+            //LINQ - Set Operators
+
+            #region Q01
+            //1.Find the unique Category names from Product List
+            var result = ProductList.Select(p => p.Category).Distinct();
+
+            foreach (var item in result)
             {
                 Console.WriteLine(item);
-            }
+            } 
+            #endregion
+
+
 
             #endregion
 
