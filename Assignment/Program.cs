@@ -214,7 +214,7 @@ namespace Assignment
             #region Q04
             ////4. Sort a list of products, first by category, and then by unit price, from highest to lowest.
             ////Fluent Syntax
-            //var result = ProductList.OrderByDescending(p => p.Category).ThenByDescending(p => p.UnitPrice);
+            //var result = ProductList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
 
             //foreach (var item in result)
             //{
@@ -223,14 +223,15 @@ namespace Assignment
 
             //Query Syntax
             var result2 = from p in ProductList
-                          orderby p.Category descending, p.UnitPrice descending
+                          orderby p.Category, p.UnitPrice descending
                           select p;
 
             foreach (var item in result2)
             {
                 Console.WriteLine(item);
-            } 
+            }
             #endregion
+
 
             #endregion
         }
