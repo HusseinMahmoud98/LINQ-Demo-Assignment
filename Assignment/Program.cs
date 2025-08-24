@@ -255,17 +255,38 @@ namespace Assignment
             #endregion
 
             #region Q06
-            //6. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
-            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            var result = Arr.Where(d => d[1] == 'i').Reverse().ToList();
+            ////6. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
+            //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //var result = Arr.Where(d => d[1] == 'i').Reverse().ToList();
 
-            foreach (var item in result)
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #endregion
+
+            //LINQ – Transformation Operators
+
+            #region Q01
+            ////1. Return a sequence of just the names of a list of products.
+            //var result = ProductList.Select(p => p.ProductName);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            var result2 = from p in ProductList
+                          select p.ProductName;
+
+            foreach (var item in result2)
             {
                 Console.WriteLine(item);
-            } 
-            #endregion
+            }
 
             #endregion
+
         }
     }
 }
