@@ -200,15 +200,15 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            //Query Syntax
-            var result2 = from arr in Arr
-                          orderby arr.Length, arr
-                          select arr;
+            ////Query Syntax
+            //var result2 = from arr in Arr
+            //              orderby arr.Length, arr
+            //              select arr;
 
-            foreach (var item in result2)
-            {
-                Console.WriteLine(item);
-            } 
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //} 
             #endregion
 
             #endregion
