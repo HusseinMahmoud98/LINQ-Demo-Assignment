@@ -55,6 +55,8 @@ namespace Assignment
 
             #endregion
 
+
+            #region LINQ - Element Operators
             ////LINQ - Element Operators
             #region Q01
             ////1. Get first Product out of Stock 
@@ -73,17 +75,34 @@ namespace Assignment
 
             #endregion
 
-            //2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
-            var result = ProductList.Where(p=>p.UnitPrice>1000).ElementAtOrDefault(0);
-            Console.WriteLine(result);
+            #region Q02
+            ////2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
+            //var result = ProductList.Where(p => p.UnitPrice > 1000).ElementAtOrDefault(0);
+            //Console.WriteLine(result);
 
-            //or
-            var result2 = ProductList.Where(p => p.UnitPrice > 1000).FirstOrDefault();
-            Console.WriteLine(result2);
+            ////or
+            //var result2 = ProductList.Where(p => p.UnitPrice > 1000).FirstOrDefault();
+            //Console.WriteLine(result2);
 
-            //or
-            var result3 = ProductList.FirstOrDefault(p => p.UnitPrice > 1000);
-            Console.WriteLine(result3);
+            ////or
+            //var result3 = ProductList.FirstOrDefault(p => p.UnitPrice > 1000);
+            //Console.WriteLine(result3);
+            #endregion
+            #endregion
+
+            #region LINQ - Aggregate Operators
+            //LINQ - Aggregate Operators
+            #region Q01
+            //1. Uses Count to get the number of odd numbers in the array
+            //Int [] Arr = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
+
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var result = Arr.Count(n => n % 2 == 1);
+            Console.WriteLine(result); 
+            #endregion
+
+            #endregion
         }
     }
 }
