@@ -333,13 +333,26 @@ namespace Assignment
             #endregion
 
             #region Q04
-            //4. Select all orders where the order total is less than 500.00.
-            var result = CustomerList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
+            ////4. Select all orders where the order total is less than 500.00.
+            ////Fluent Syntax
+            //var result = CustomerList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
 
-            foreach (var item in result)
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Query Syntax
+            var result2 = from c in CustomerList
+                         from o in c.Orders
+                         where o.Total < 500
+                         select o;
+
+            foreach (var item in result2)
             {
                 Console.WriteLine(item);
-            } 
+            }
+
             #endregion
 
         }
