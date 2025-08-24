@@ -112,17 +112,28 @@ namespace Assignment
             #endregion
 
             #region Q03
-            //REVIEW THIS
-            //3. Get the total number of characters of all words in dictionary_english.txt
-            //   (Read dictionary_english.txt into Array of String First).
-            string words = "dictionary_english.txt";
-            string[] arrString = words.Split('_', '.'); // {"dictionary", "english", "txt"}
+            ////REVIEW THIS
+            ////3. Get the total number of characters of all words in dictionary_english.txt
+            ////   (Read dictionary_english.txt into Array of String First).
+            //string words = "dictionary_english.txt";
+            //string[] arrString = words.Split('_', '.'); // {"dictionary", "english", "txt"}
 
-            var result = arrString.Sum(c => c.Length);
+            //var result = arrString.Sum(c => c.Length);
 
-            Console.WriteLine(result); 
+            //Console.WriteLine(result); 
             #endregion
 
+            #region Q04
+            //4. Get the length of the shortest word in dictionary_english.txt
+            //   (Read dictionary_english.txt into Array of String First).
+            string word = "dictionary_english.txt";
+            string[] arrString = word.Split(' ', '.'); // {"dictionary", "english", "txt"}
+
+            var result = arrString.Min(w => w.Length);
+            Console.WriteLine(result); //3
+
+
+            #endregion
 
             #endregion
         }
