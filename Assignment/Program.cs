@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System.Runtime.Intrinsics.Arm;
+using System.Threading;
+using System.Xml.Linq;
 using static Assignment.ListGenerator;
 
 namespace Assignment
@@ -165,6 +167,7 @@ namespace Assignment
 
             #endregion
 
+            #region Q02
             //2. Sort a list of products by units in stock from highest to lowest.
             //Fluent Syntax
             //var result = ProductList.OrderByDescending(p => p.UnitsInStock);
@@ -174,16 +177,39 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
+            ////Query Syntax
+            //var result2 = from p in ProductList
+            //              orderby p.UnitsInStock descending
+            //              select p;
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #region Q03
+            //3. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
+            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            //Fluent Syntax
+            //var result = Arr.OrderBy(d => d.Length).ThenBy(p=>p);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
             //Query Syntax
-            var result2 = from p in ProductList
-                          orderby p.UnitsInStock descending
-                          select p;
+            var result2 = from arr in Arr
+                          orderby arr.Length, arr
+                          select arr;
 
             foreach (var item in result2)
             {
                 Console.WriteLine(item);
-            }
-
+            } 
+            #endregion
 
             #endregion
         }
