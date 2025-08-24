@@ -1,4 +1,5 @@
-﻿using System.Runtime.Intrinsics.Arm;
+﻿using System.Collections.Generic;
+using System.Runtime.Intrinsics.Arm;
 using System.Threading;
 using System.Xml.Linq;
 using static Assignment.ListGenerator;
@@ -221,15 +222,36 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            //Query Syntax
-            var result2 = from p in ProductList
-                          orderby p.Category, p.UnitPrice descending
-                          select p;
+            ////Query Syntax
+            //var result2 = from p in ProductList
+            //              orderby p.Category, p.UnitPrice descending
+            //              select p;
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q05
+            //5.Sort first by-word length and then by a case -insensitive descending sort of the words in an array.
+            String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+
+            //var result = Arr.OrderBy(word => word.Length).ThenByDescending(word => word.ToUpper());
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            var result2 = from arr in Arr
+                          orderby arr.Length, arr.ToUpper() descending
+                          select arr;
 
             foreach (var item in result2)
             {
                 Console.WriteLine(item);
-            }
+            } 
             #endregion
 
 
