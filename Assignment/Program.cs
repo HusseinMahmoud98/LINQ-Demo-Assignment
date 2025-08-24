@@ -190,7 +190,7 @@ namespace Assignment
 
             #region Q03
             //3. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
-            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             //Fluent Syntax
             //var result = Arr.OrderBy(d => d.Length).ThenBy(p=>p);
@@ -209,6 +209,27 @@ namespace Assignment
             //{
             //    Console.WriteLine(item);
             //} 
+            #endregion
+
+            #region Q04
+            ////4. Sort a list of products, first by category, and then by unit price, from highest to lowest.
+            ////Fluent Syntax
+            //var result = ProductList.OrderByDescending(p => p.Category).ThenByDescending(p => p.UnitPrice);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Query Syntax
+            var result2 = from p in ProductList
+                          orderby p.Category descending, p.UnitPrice descending
+                          select p;
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine(item);
+            } 
             #endregion
 
             #endregion
