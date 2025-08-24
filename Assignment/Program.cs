@@ -57,7 +57,7 @@ namespace Assignment
 
 
             #region LINQ - Element Operators
-            ////LINQ - Element Operators
+            //LINQ - Element Operators
             #region Q01
             ////1. Get first Product out of Stock 
             ////Fluent Syntax
@@ -103,13 +103,27 @@ namespace Assignment
             #endregion
 
             #region Q02
-            //2. Get the total of the numbers in an array.
-            //Int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            ////2. Get the total of the numbers in an array.
+            ////Int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var result = Arr.Count();
-            Console.WriteLine(result); //10 
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = Arr.Count();
+            //Console.WriteLine(result); //10 
             #endregion
+
+            #region Q03
+            //REVIEW THIS
+            //3. Get the total number of characters of all words in dictionary_english.txt
+            //   (Read dictionary_english.txt into Array of String First).
+            string words = "dictionary_english.txt";
+            string[] arrString = words.Split('_', '.'); // {"dictionary", "english", "txt"}
+
+            var result = arrString.Sum(c => c.Length);
+
+            Console.WriteLine(result); 
+            #endregion
+
+
             #endregion
         }
     }
