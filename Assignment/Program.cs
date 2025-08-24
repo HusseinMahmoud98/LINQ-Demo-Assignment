@@ -277,14 +277,38 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            var result2 = from p in ProductList
-                          select p.ProductName;
+            //var result2 = from p in ProductList
+            //              select p.ProductName;
 
-            foreach (var item in result2)
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Q02
+            //2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
+            String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            var resultUpperCase = words.Select(word => word.ToUpper());
+
+            var resultLowerCase = words.Select(word => word.ToLower());
+
+            Console.WriteLine("Upper case version");
+            Console.WriteLine("------------------");
+            foreach (var item in resultUpperCase)
             {
                 Console.WriteLine(item);
             }
 
+
+            Console.WriteLine("\n-------------------------------------------------------------");
+            Console.WriteLine("Lower case version");
+            Console.WriteLine("------------------");
+            foreach (var item in resultLowerCase)
+            {
+                Console.WriteLine(item);
+            } 
             #endregion
 
         }
