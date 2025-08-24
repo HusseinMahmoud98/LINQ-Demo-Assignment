@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.Intrinsics.Arm;
 using System.Threading;
 using System.Xml.Linq;
 using static Assignment.ListGenerator;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment
 {
@@ -288,24 +290,53 @@ namespace Assignment
             #endregion
 
             #region Q02
-            //2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
-            String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
-            var resultUpperCase = words.Select(word => word.ToUpper());
+            ////2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
+            //String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            //var resultUpperCase = words.Select(word => word.ToUpper());
 
-            var resultLowerCase = words.Select(word => word.ToLower());
+            //var resultLowerCase = words.Select(word => word.ToLower());
 
-            Console.WriteLine("Upper case version");
-            Console.WriteLine("------------------");
-            foreach (var item in resultUpperCase)
-            {
-                Console.WriteLine(item);
-            }
+            //Console.WriteLine("Upper case version");
+            //Console.WriteLine("------------------");
+            //foreach (var item in resultUpperCase)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
-            Console.WriteLine("\n-------------------------------------------------------------");
-            Console.WriteLine("Lower case version");
-            Console.WriteLine("------------------");
-            foreach (var item in resultLowerCase)
+            //Console.WriteLine("\n-------------------------------------------------------------");
+            //Console.WriteLine("Lower case version");
+            //Console.WriteLine("------------------");
+            //foreach (var item in resultLowerCase)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #region Q03
+            //3. Returns all pairs of numbers from both arrays such that the number from numbersA is less than the number from numbersB.
+            //int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            //int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            //int[,] numbersAB = new int[2, 7];
+
+            //for (int i = 0; i < numbersA.Length; i++)
+            //{
+            //    numbersAB[0,i] = numbersA[i];
+            //}
+
+            //for (int i = 0; i < numbersB.Length; i++)
+            //{
+            //    numbersAB[1, i] = numbersB[i];
+            //}
+
+            #endregion
+
+            #region Q04
+            //4. Select all orders where the order total is less than 500.00.
+            var result = CustomerList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
+
+            foreach (var item in result)
             {
                 Console.WriteLine(item);
             } 
