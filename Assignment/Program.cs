@@ -31,6 +31,33 @@ namespace Assignment
             #endregion 
             #endregion
 
+            //2. Find all products that are in stock and cost more than 3.00 per unit.
+            //Fluent Syntax
+            //var result = ProductList.Where(p => p.UnitPrice > 3);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Query Syntax
+            var result2 = from p in ProductList
+                          where p.UnitPrice > 3
+                          select p;
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+
+
+
+
+
+
         }
     }
 }
