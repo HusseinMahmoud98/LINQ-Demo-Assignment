@@ -145,9 +145,39 @@ namespace Assignment
 
             #endregion
 
-            #region Q05  //To be continued
+            #region Q05
             //REVIEW THIS
             //5. Get the total units in stock for each product category.
+            //Fluent Syntax
+            var result = ProductList.GroupBy(p => p.Category)
+                                    .Select(g => new
+                                    {
+                                        Category = g.Key,
+                                        TotalUnits = g.Sum(p => p.UnitsInStock)
+                                    });
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+            //Query Syntax
+            var result2 = from p in ProductList
+                          group p by p.Category
+                          into category
+                          select new
+                          {
+                              CategoryName = category.Key,
+                              CategorySumOfUnits = category.Sum(units => units.UnitsInStock)
+                          };
+
+            foreach (var item in result2)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
             #endregion
 
             #endregion #endregion
@@ -273,7 +303,6 @@ namespace Assignment
             #endregion
 
             #endregion
-
 
             #region LINQ – Transformation Operators
             //LINQ – Transformation Operators
@@ -465,20 +494,25 @@ namespace Assignment
             //LINQ - Quantifiers
 
             #region Q01
-            //1. Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into 
-            //Array of String First) contain the substring 'ei'.
+            ////1. Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into 
+            ////Array of String First) contain the substring 'ei'.
 
-            string words = "dictionary_english.txt";
+            //string words = "dictionary_english.txt";
 
-            string[] arrString = words.Split('_', '.');
+            //string[] arrString = words.Split('_', '.');
 
-            var result = arrString.Any(s => s.Contains("ei"));
+            //var result = arrString.Any(s => s.Contains("ei"));
 
-            Console.WriteLine(result); //false
-
+            //Console.WriteLine(result); //false
 
             #endregion
 
+            #region Q02
+            //2. Return a grouped a list of products only for categories that have at least one product that is out of stock. 
+            //var result = ProductList.GroupBy(p => p.Category);
+
+
+            #endregion
             #endregion
 
         }
