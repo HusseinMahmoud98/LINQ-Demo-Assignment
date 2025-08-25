@@ -426,14 +426,25 @@ namespace Assignment
             #endregion
 
             #region Q02
-            //2. Get all but the first 2 orders from customers in Washington.
-            var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Skip(2);
+            ////2. Get all but the first 2 orders from customers in Washington.
+            //var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Skip(2);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Q03
+            //3.Return elements starting from the beginning of the array until a number is hit that is less than its position in the array. 
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var result = numbers.TakeWhile((number, index) => number >= index);
 
             foreach (var item in result)
             {
                 Console.WriteLine(item);
-            }
-
+            } 
             #endregion
             #endregion
 
