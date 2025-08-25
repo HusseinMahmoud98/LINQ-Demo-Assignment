@@ -413,16 +413,28 @@ namespace Assignment
             #region LINQ - Partitioning Operators
 
             //LINQ - Partitioning Operators
+
             #region Q01
-            //1. Get the first 3 orders from customers in Washington
-            var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Take(3);
+            ////1. Get the first 3 orders from customers in Washington
+            //var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Take(3);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Q02
+            //2. Get all but the first 2 orders from customers in Washington.
+            var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Skip(2);
 
             foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
 
-            #endregion 
+            #endregion
             #endregion
 
         }
