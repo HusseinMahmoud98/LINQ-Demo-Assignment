@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.Arm;
+using System.Runtime.Intrinsics.X86;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
@@ -203,7 +205,8 @@ namespace Assignment
             //              {
             //                  Category = category.Key,
             //                  MinPrice = category.Min(i => i.UnitPrice)
-            //              };
+            //              };                   
+
 
             //foreach (var item in result2)
             //{
@@ -230,6 +233,7 @@ namespace Assignment
             //}
             #endregion
 
+            #region Q08
             //8. Get the average price of each category's products
             //Fluent Syntax
             //var result = ProductList.GroupBy(p => p.Category)
@@ -244,20 +248,21 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            var result2 = from p in ProductList
-                         group p by p.Category
-                         into category
-                         select new
-                         {
-                             Category = category.Key,
-                             CategoryAvg = category.Average(i => i.UnitPrice)
-                         };
+            //var result2 = from p in ProductList
+            //             group p by p.Category
+            //             into category
+            //             select new
+            //             {
+            //                 Category = category.Key,
+            //                 CategoryAvg = category.Average(i => i.UnitPrice)
+            //             };
 
 
-            foreach (var item in result2)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
 
             #endregion
 
@@ -588,10 +593,39 @@ namespace Assignment
 
             #region Q02
             //2. Return a grouped a list of products only for categories that have at least one product that is out of stock. 
-            //var result = ProductList.GroupBy(p => p.Category);
+
 
 
             #endregion
+
+            #region Q03
+            //3. Return a grouped a list of products only for categories that have all of their products in stock.  
+            #endregion
+
+
+
+            #endregion
+
+            #region LINQ – Grouping Operators
+            //LINQ – Grouping Operators
+            //Uses group by to partition a list of words by their first letter.
+            //Use dictionary_english.txt for Input
+            string words = "dictionary_english.txt";
+            string[] arrString = words.Split('_', '.');
+
+            var result = arrString.GroupBy(word => word[0]);
+
+            foreach (var firstLetter in result)
+            {
+                Console.WriteLine(firstLetter.Key);
+               
+                foreach (var word in firstLetter)
+                {
+                    Console.WriteLine($"...{word}");   
+                }
+
+                Console.WriteLine("---------------------------------------------------------------");
+            }
             #endregion
 
         }
