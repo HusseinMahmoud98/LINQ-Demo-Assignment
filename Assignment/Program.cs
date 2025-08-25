@@ -437,14 +437,25 @@ namespace Assignment
             #endregion
 
             #region Q03
-            //3.Return elements starting from the beginning of the array until a number is hit that is less than its position in the array. 
-            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var result = numbers.TakeWhile((number, index) => number >= index);
+            ////3.Return elements starting from the beginning of the array until a number is hit that is less than its position in the array. 
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = numbers.TakeWhile((number, index) => number >= index);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q04
+            //4.Get the elements of the array starting from the first element divisible by 3. 
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+            var result = numbers.SkipWhile(n => n%3 != 0);
 
             foreach (var item in result)
             {
                 Console.WriteLine(item);
-            } 
+            }
             #endregion
             #endregion
 
