@@ -631,16 +631,16 @@ namespace Demo
             //    Console.WriteLine(item);
             //}
 
-            var result4 = from name in Names
-                          let NoVolNames = Regex.Replace(name, "[aeouiAEOUI]", string.Empty)
-                          where NoVolNames.Length > 3
-                          select NoVolNames;
+            //var result4 = from name in Names
+            //              let NoVolNames = Regex.Replace(name, "[aeouiAEOUI]", string.Empty)
+            //              where NoVolNames.Length > 3
+            //              select NoVolNames;
 
 
-            foreach (var item in result4)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result4)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
         }
     }
