@@ -34,16 +34,29 @@ namespace Task
             #endregion
 
             #region Q03
-            //Select all orders where the order was made in 1998 or later
-            var result = CustomerList.SelectMany(o => o.Orders).Where(o => o.OrderDate >= DateTime.Parse("1998-1-1"));
+            ////Select all orders where the order was made in 1998 or later
+            //var result = CustomerList.SelectMany(o => o.Orders).Where(o => o.OrderDate >= DateTime.Parse("1998-1-1"));
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            #endregion   
-        
+            #endregion
+
+            #region Q04
+            //Name of the product with the highest unit price (make it with at least 2 ways)
+            var result = ProductList.OrderByDescending(p => p.UnitPrice).Select(p => p.ProductName).Take(1);
+            Console.WriteLine(result.ElementAt(0));
+
+            var max = ProductList.Max(p => p.UnitPrice);
+            var result2 = ProductList.Where(p => p.UnitPrice == max).FirstOrDefault();
+            Console.WriteLine(result2?.ProductName);
+
+            #endregion
+
+
+
 
 
         }
