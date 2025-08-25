@@ -396,16 +396,33 @@ namespace Assignment
             //} 
             #endregion
 
+            #region Q04
             ////4.Create one sequence that contains the first letters of product names that are not also first letters
             ////  of customer names.
-            var result = ProductList.ExceptBy(CustomerList.Select(c => c.CustomerName[0]), p => p.ProductName[0])
-                                    .Select(p => p.ProductName[0]);
+            //var result = ProductList.ExceptBy(CustomerList.Select(c => c.CustomerName[0]), p => p.ProductName[0])
+            //                        .Select(p => p.ProductName[0]);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+            #endregion
+
+            #region LINQ - Partitioning Operators
+
+            //LINQ - Partitioning Operators
+            #region Q01
+            //1. Get the first 3 orders from customers in Washington
+            var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Take(3);
 
             foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
 
+            #endregion 
             #endregion
 
         }
