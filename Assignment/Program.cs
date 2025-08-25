@@ -195,15 +195,64 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
 
-            //Query Syntax
+            ////Query Syntax
+            //var result2 = from p in ProductList
+            //              group p by p.Category
+            //              into category
+            //              select new
+            //              {
+            //                  Category = category.Key,
+            //                  MinPrice = category.Min(i => i.UnitPrice)
+            //              };
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Q07
+            //Review this
+            //use let?
+            //7. Get the products with the cheapest price in each category (Use Let)
+            //var result = from p in ProductList
+            //             group p by p.Category
+            //             into category
+            //             select new
+            //             {  
+            //                  p = category.MinBy(i => i.UnitPrice)
+            //             };
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            //8. Get the average price of each category's products
+            //Fluent Syntax
+            //var result = ProductList.GroupBy(p => p.Category)
+            //                        .Select(g => new
+            //                        {
+            //                            Category = g.Key,
+            //                            AvgPrice = g.Average(i=>i.UnitPrice)
+            //                        });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
             var result2 = from p in ProductList
-                          group p by p.Category
-                          into category
-                          select new
-                          {
-                              Category = category.Key,
-                              MinPrice = category.Min(i => i.UnitPrice)
-                          };
+                         group p by p.Category
+                         into category
+                         select new
+                         {
+                             Category = category.Key,
+                             CategoryAvg = category.Average(i => i.UnitPrice)
+                         };
+
 
             foreach (var item in result2)
             {
@@ -211,8 +260,6 @@ namespace Assignment
             }
 
             #endregion
-
-            #endregion #endregion
 
             #region LINQ - Ordering Operators
             #region Q01

@@ -603,6 +603,7 @@ namespace Demo
             //} 
             #endregion
 
+            #region let - into
             List<string> Names = new List<string>() { "Ahmed", "Ali", "Mohamed", "Mona", "Aya", "Mariam",
                                                      "Tuqqa", "Sally", "Mahmoud", "Osama"};
 
@@ -640,7 +641,8 @@ namespace Demo
             //foreach (var item in result4)
             //{
             //    Console.WriteLine(item);
-            //}
+            //} 
+            #endregion
 
         }
     }
