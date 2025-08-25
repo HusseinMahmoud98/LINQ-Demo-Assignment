@@ -375,9 +375,20 @@ namespace Assignment
             #endregion
 
             #region Q02
-            //2.Produce a Sequence containing the unique first letter from both product and customer names.
-            var result = ProductList.DistinctBy(p => p.ProductName[0]).Select(p => p.ProductName)
-                .Union(CustomerList.DistinctBy(c => c.CustomerName[0]).Select(c => c.CustomerName));
+            ////2.Produce a Sequence containing the unique first letter from both product and customer names.
+            //var result = ProductList.DistinctBy(p => p.ProductName[0]).Select(p => p.ProductName)
+            //    .Union(CustomerList.DistinctBy(c => c.CustomerName[0]).Select(c => c.CustomerName));
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #region Q03
+            //3. Create one sequence that contains the common first letter from both product and customer names.
+            var result = ProductList.IntersectBy(CustomerList.Select(c => c.CustomerName[0]), p => p.ProductName[0])
+                                    .Select(p => p.ProductName[0]);
 
             foreach (var item in result)
             {
