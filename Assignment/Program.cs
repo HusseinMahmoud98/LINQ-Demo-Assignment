@@ -149,17 +149,51 @@ namespace Assignment
             //REVIEW THIS
             //5. Get the total units in stock for each product category.
             //Fluent Syntax
-            var result = ProductList.GroupBy(p => p.Category)
-                                    .Select(g => new
-                                    {
-                                        Category = g.Key,
-                                        TotalUnits = g.Sum(p => p.UnitsInStock)
-                                    });
+            //var result = ProductList.GroupBy(p => p.Category)
+            //                        .Select(g => new
+            //                        {
+            //                            Category = g.Key,
+            //                            TotalUnits = g.Sum(p => p.UnitsInStock)
+            //                        });
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            ////Query Syntax
+            //var result2 = from p in ProductList
+            //              group p by p.Category
+            //              into category
+            //              select new
+            //              {
+            //                  CategoryName = category.Key,
+            //                  CategorySumOfUnits = category.Sum(units => units.UnitsInStock)
+            //              };
+
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
+            #endregion
+
+            #region Q06
+            //6.Get the cheapest price among each category's products
+            //Fluent Syntax
+            //var result = ProductList.GroupBy(p => p.Category)
+            //                        .Select(g => new
+            //                        {
+            //                            Category = g.Key,
+            //                            CheapestPrice = g.Min(i=>i.UnitPrice)
+            //                        });
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             //Query Syntax
             var result2 = from p in ProductList
@@ -167,16 +201,14 @@ namespace Assignment
                           into category
                           select new
                           {
-                              CategoryName = category.Key,
-                              CategorySumOfUnits = category.Sum(units => units.UnitsInStock)
+                              Category = category.Key,
+                              MinPrice = category.Min(i => i.UnitPrice)
                           };
 
             foreach (var item in result2)
             {
                 Console.WriteLine(item);
             }
-
-
 
             #endregion
 
