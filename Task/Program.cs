@@ -45,19 +45,33 @@ namespace Task
             #endregion
 
             #region Q04
-            //Name of the product with the highest unit price (make it with at least 2 ways)
-            var result = ProductList.OrderByDescending(p => p.UnitPrice).Select(p => p.ProductName).Take(1);
-            Console.WriteLine(result.ElementAt(0));
+            ////Name of the product with the highest unit price (make it with at least 2 ways)
+            //var result = ProductList.OrderByDescending(p => p.UnitPrice).Select(p => p.ProductName).Take(1);
+            //Console.WriteLine(result.ElementAt(0));
 
-            var max = ProductList.Max(p => p.UnitPrice);
-            var result2 = ProductList.Where(p => p.UnitPrice == max).FirstOrDefault();
-            Console.WriteLine(result2?.ProductName);
+            //var max = ProductList.Max(p => p.UnitPrice);
+            //var result2 = ProductList.Where(p => p.UnitPrice == max).FirstOrDefault();
+            //Console.WriteLine(result2?.ProductName);
 
             #endregion
 
+            //Find the unique category names from the product list -
+            //do it in 2 ways: (1) using set operators, and (2) using casting operators
 
+            var result = ProductList.Select(p => p.Category).Distinct();
 
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
 
+            Console.WriteLine("--------------------------------------------------");
+
+            var result2 = ProductList.Select(p => p.Category).ToHashSet();
+            foreach (var item in result2)
+            {
+                Console.WriteLine(item);
+            }
 
         }
     }
