@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.Arm;
 using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using static Assignment.ListGenerator;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Assignment
@@ -413,7 +416,6 @@ namespace Assignment
             #region LINQ - Partitioning Operators
 
             //LINQ - Partitioning Operators
-
             #region Q01
             ////1. Get the first 3 orders from customers in Washington
             //var result = CustomerList.Where(c => c.Region == "WA").SelectMany(c => c.Orders).Take(3);
@@ -448,15 +450,35 @@ namespace Assignment
             #endregion
 
             #region Q04
-            //4.Get the elements of the array starting from the first element divisible by 3. 
-            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-            var result = numbers.SkipWhile(n => n%3 != 0);
+            ////4.Get the elements of the array starting from the first element divisible by 3. 
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+            //var result = numbers.SkipWhile(n => n%3 != 0);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
+            #endregion
+
+            #region LINQ - Quantifiers
+            //LINQ - Quantifiers
+
+            #region Q01
+            //1. Determine if any of the words in dictionary_english.txt (Read dictionary_english.txt into 
+            //Array of String First) contain the substring 'ei'.
+
+            string words = "dictionary_english.txt";
+
+            string[] arrString = words.Split('_', '.');
+
+            var result = arrString.Any(s => s.Contains("ei"));
+
+            Console.WriteLine(result); //false
+
+
+            #endregion
+
             #endregion
 
         }
